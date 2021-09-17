@@ -1,0 +1,33 @@
+Funcionamiento de la practica
+
+Main(){
+	menu de opciones;
+	....
+	case 1:
+		ordenar();
+	....
+}
+
+void ordenar(){
+	// Pedimos el maximo, minimo, incremento de los elementos del vector
+	// para n de minimo a maximo inc incremento
+		// reservarVector(tamano n)
+		// rellenarVector
+		// Iniciar medicion de tiempo
+		// ordenarVector
+		// medir tiempo
+		// introducir en el vector respectivo el tiempo real y el valor n
+	// fin_para
+	// AjustePolinomico(vector nElementos, vector tReales, vector polinomio)
+	// estimarTiempos( vector nElementos, vector polinomio, vector &tEstimados);
+		// Para cualquier prediccion introducir n y despues:  tEstimado = a0 + a1*n + a2*n2
+	// guardar en fichero de texto vector nElementos, vector tReales, vector tEstimados
+}
+
+AjustePolinomico(vector nElementos, vector tReales, vector polinomio){
+	//Obtener la matriz de coeficientes (A) y la de terminos independientes (B) del sistema de ecuaciones.
+	// La obtenemos calculando los sumatorios correspondientes mediante la funcion sumatorio
+	// ResolverSistema(A,B,X)
+	// Pasar los valores de X al polinomio
+	
+}
