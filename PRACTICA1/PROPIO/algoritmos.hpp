@@ -12,10 +12,14 @@
 
 using namespace std;
 
+// Prototipo de las funciones de tiempo de los algoritmos
+
 void ordenacionSeleccion();
 
 void productoMatricesCuadradas();
 
 void fibonacciRecursivo();
+
+
 
 #endif
