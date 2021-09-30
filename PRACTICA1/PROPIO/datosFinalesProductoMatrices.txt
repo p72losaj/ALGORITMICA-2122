@@ -1,0 +1,5 @@
+Tamano Ejemplar  Tiempo Real    Tiempos Estimados
+2    1  1.05
+3    3  2.85
+4    7  7.15
+5    14  13.95

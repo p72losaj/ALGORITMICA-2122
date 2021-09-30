@@ -1,0 +1,5 @@
+Numero Elementos       Media de tiempos reales
+2    1
+3    3
+4    7
+5    14

@@ -1,29 +1,41 @@
-practica1.exe: practica1.o funcionesPrincipales.o algoritmos.o ClaseTiempo.o vector.o matrices.o funcionesauxiliares.o sistemaEcuaciones.o
-	g++ -Wall -o practica1.exe practica1.o funcionesPrincipales.o algoritmos.o vector.o matrices.o ClaseTiempo.o -lrt
+# Makefile de la practica 1 de algoritmica
 
-practica1.o: practica1.cpp
-	g++ -c practica1.cpp
+# Creamos el fichero ejecutable de la practica
+practica1.exe: MainProgram.o ordenacionSeleccion.o ClaseTiempo.o sistemaEcuaciones.o productoMatricesCuadradas.o funcionesComunes.o fibonacci.o
+	g++ -Wall -o practica1.exe MainProgram.o ordenacionSeleccion.o ClaseTiempo.o sistemaEcuaciones.o productoMatricesCuadradas.o fibonacci.o funcionesComunes.o -lrt
 
-algoritmos.o: algoritmos.cpp
-	g++ -c algoritmos.cpp
+# Creamos el fichero objeto del programa principal
 
-funcionesPrincipales.o: funcionesPrincipales.cpp	
-	g++ -c funcionesPrincipales.cpp
+MainProgram.o: MainProgram.cpp
+	g++ -c MainProgram.cpp
+
+# Creamos el fichero objeto de fibbonnaci
+
+fibonacci.o: fibonacci.cpp
+	g++ -c fibonacci.cpp
+
+# Creamos el fichero objeto del fichero de ordenacionSeleccion
+
+ordenacionSeleccion.o: ordenacionSeleccion.cpp
+	g++ -c ordenacionSeleccion.cpp
+
+# Creamos el fichero objeto del fichero ClaseTiempo
 
 ClaseTiempo.o: ClaseTiempo.cpp
 	g++ -c ClaseTiempo.cpp
 
-vector.o: vector.cpp	
-	g++ -c vector.cpp
-
-matrices.o: matrices.cpp
-	g++ -c matrices.cpp
-
-funcionesauxiliares.o: funcionesauxiliares.cpp
-	g++ -c funcionesauxiliares.cpp
+# Creamos el fichero objeto del sistema de ecuaciones
 
 sistemaEcuaciones.o: sistemaEcuaciones.cpp
 	g++ -c sistemaEcuaciones.cpp
+
+
+# Creamos el fichero objeto productoMatricesCuadradas.o
+
+productoMatricesCuadradas.o: productoMatricesCuadradas.cpp
+	g++ -c productoMatricesCuadradas.cpp
+
+# Creamos el fichero objeto 
 
 .PHONY: clean
 
