@@ -73,8 +73,6 @@ void escribeFicheroTiemposReales(string nombre,std::vector<double> &numeroElemen
 std::vector<double> &tiemposReales);
 
 
-
-
 /**
  *  Funcion que escribe en un fichero los tiempos estimados de un algoritmo
  *  @param nombreFichero Nombre del fichero
@@ -86,5 +84,19 @@ std::vector<double> &tiemposReales);
 void escribeFicheroTiemposEstimados(string nombreFichero, 
 std::vector<double> &numeroElementos, std::vector<double> &tiemposReales, 
 std::vector<double> &tiemposEstimados);
+
+/**
+    * Funcion que rellena un vector con valores aleatorios
+    * @param v Vector a rellenar
+*/
+void rellenarVector(vector<int> &v);
+
+/**
+    * Funcion que comprueba si un vector esta ordenado de menor a mayor
+    * @param v Vector de elementos
+    * @return true Si el vector esta ordenado; false en caso contrario
+*/
+
+bool estaOrdenado(const vector <int> &v);
 
 #endif

@@ -58,9 +58,6 @@ std::vector<double> &tiemposEstimados){
     fichero.close();    
 }
 
-
-
-
 // Funcion sumatorio
 
 double sumatorio(const vector<double> n, const vector <double> t, int expN, int expT){
@@ -69,6 +66,27 @@ double sumatorio(const vector<double> n, const vector <double> t, int expN, int 
         res = res + pow(n[i], expN) * pow(t[i], expT);
     }
     return res;
+}
+
+// Funcion rellenarVector
+
+void rellenarVector(vector<int> &v){
+    int valor;
+    for(size_t i=0; i < v.size(); i++){
+        valor = rand()%9999999;
+        v[i] = valor;
+    }
+}
+
+// Funcion estaOrdenado
+
+bool estaOrdenado(const vector <int> &v){
+    for(size_t i=0; i < v.size()-1; i++){
+        if(v[i] > v[i+1]){
+            return false;
+        }
+    }
+    return true;
 }
 
 /**
@@ -160,6 +178,8 @@ const vector <double> &tiemposEstimados){
     return varianza_estimada / varianza_real;
 }
 
+// Calculo de la varianza
+
 double varianza(std::vector<double> vector, double media){
     double var = 0.0;
     for(int i=0; i < vector.size(); i++){
@@ -168,6 +188,8 @@ double varianza(std::vector<double> vector, double media){
     var = var / vector.size();
     return var;
 }
+
+// Calculo de la media
 
 double media(std::vector<double> vector){
     double suma = 0.0;
