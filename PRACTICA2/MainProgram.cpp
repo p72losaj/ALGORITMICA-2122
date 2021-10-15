@@ -33,7 +33,7 @@ int main(){
         cin >> opcion;
         switch(opcion){
         case 1:
-            //ordenacionQuickSort();
+            ordenacionQuickSort();
         break;
         case 2:
             //ordenacionFusion();
