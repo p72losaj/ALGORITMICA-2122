@@ -28,6 +28,8 @@ void ordenacionQuickSort(){
     cin >> repeticiones;
     // Obtenemos los tiempos de ordenacion de seleccion
     tiemposOrdenacionQuickSort(minimo, maximo, repeticiones, tiemposReales, numeroElementos);
+    // Amacenamos en un fichero de texto el vector numeroElementos y el vector tiemposReales
+    escribeFicheroTiemposReales("datosReales.txt",numeroElementos, tiemposReales);
 }
 
 // Funcion de obtencion de los tiempos de ordenacion
@@ -66,7 +68,7 @@ vector <double> &numeroElementos){
             // Iniciar medicion de tiempo
             tiempo.restart();
             // Ordenamos el vector
-            ordenacionVector(vector);
+            ordenacion(0,tamActual-1,tamActual,vector);
             bool ordenado = estaOrdenado(vector);
             if(ordenado == false){
                 exit(-1);
@@ -93,8 +95,49 @@ vector <double> &numeroElementos){
 
 // Funcion de ordenacion del vector
 
-void ordenacionVector(vector <int> &v){
 
+void ordenacion(int iz, int de, int n, vector <int> &v){
+    int i = iz; // Primer elemento del vector
+    int j = de; // Ultimo elemento del vector
+    int x = v[(iz+de) / 2]; // Elemento medio del vector
+    do{
+        while(v[i] < x){
+            i = i+1;
+        }
+
+        while(v[j] > x){
+            j = j-1;
+        }
+
+        if( i <= j){
+            
+            // Intercambiamos los valores del vector en la posicion i y j
+            
+            int aux = v[i];
+
+            v[i] = v[j];
+
+            v[j] = aux;
+
+            i = i+1;
+
+            j = j-1;
+
+        }
+
+    } while(i > j);
+
+    // El izquierdo tiene mas de 1 elemento
+
+    if( iz < j){
+        ordenacion(iz,j,n,v);
+    }
+
+    // El lado derecho tiene mas de 1 elemento
+
+    else if (i < de){
+        ordenacion(i,de,n,v);
+    }
 }
 
 

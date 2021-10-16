@@ -22,9 +22,12 @@ vector <double> &numeroElementos);
 
 /**
     Funcion que realiza la ordenacion del vector
+    @param iz Primer elemento del vector
+    @param de Ultimo elemento del vector
+    @param n Numero de elementos del vector
     @param v Vector a ordenar
 */
 
-void ordenacionVector(vector <int> &v);
+void ordenacion(int iz, int de, int n, vector <int> &v);
 
 #endif
