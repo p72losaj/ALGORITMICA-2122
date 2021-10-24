@@ -36,7 +36,7 @@ int main(){
             ordenacionQuickSort();
         break;
         case 2:
-            //ordenacionFusion();
+            ordenacionFusion();
         break;
         }
     }

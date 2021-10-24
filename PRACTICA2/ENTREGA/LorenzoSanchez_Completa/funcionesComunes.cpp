@@ -98,19 +98,25 @@ bool estaOrdenado(const vector <int> &v){
 
 void ajustePolinomico(const vector <double> &numeroElementos, const vector <double> &tiemposReales, vector <double> &a){
 
-    // t(n) =a0 + a1*n + a2*n²
+    // t(n) = a0+a1*nlog(n)
 
     // Creamos la matriz A del sistema de ecuaciones
 
-    std::vector< std::vector<double> > matrizA (3, std::vector <double>(3) ); // A = [a2,a1,a0]
+    std::vector< std::vector<double> > matrizA (2, std::vector <double>(2) ); // A = [a1,a0]
 
     // Creamos la matriz B del sistema de ecuaciones
 
-    std::vector< std::vector<double> > matrizB (3, std::vector <double>(1) ); // 
+    std::vector< std::vector<double> > matrizB (2, std::vector <double>(1) ); // 
 
     // Creamos la matriz X ( solucion)
 
-    std::vector <std::vector<double> > matrizX (3,std::vector <double> (1));
+    std::vector <std::vector<double> > matrizX (2,std::vector <double> (1));
+
+    std::vector <double> Z = numeroElementos;
+
+    for(int i=0; i < numeroElementos.size(); i++){
+        Z[i] = numeroElementos[i]*log10(numeroElementos[i]);
+    }
 
     // Recorremos filas de A
     for(int i=0; i < matrizA.size(); i++){
@@ -120,7 +126,7 @@ void ajustePolinomico(const vector <double> &numeroElementos, const vector <doub
                 matrizA[i][j] = numeroElementos.size();
             }
             else{
-                matrizA[i][j] = sumatorio(numeroElementos, tiemposReales,i+j,0);
+                matrizA[i][j] = sumatorio(Z, Z,i+j,0);
             }
         }
     }
@@ -128,7 +134,7 @@ void ajustePolinomico(const vector <double> &numeroElementos, const vector <doub
     // Rellenamos la matriz B
 
     for(int i=0; i < matrizB.size(); i++){
-       matrizB[i][0] = sumatorio(numeroElementos, tiemposReales,i,1);
+       matrizB[i][0] = sumatorio(Z, tiemposReales,i,1);
     }
 
     // Resolvemos el sistema de ecucaciones
@@ -148,7 +154,8 @@ void ajustePolinomico(const vector <double> &numeroElementos, const vector <doub
 void calcularTiemposEstimadosPolinomico(const vector <double> &numeroElementos,
 const vector <double> &a, vector <double> &tiemposEstimados){
     for(int i=0; i < numeroElementos.size();  i++){
-        double valor = a[0] + a[1] * numeroElementos[i] + a[2] * pow(numeroElementos[i],2);
+        // t(n) = a0 + a1*nlog(n).
+        double valor = a[0] + a[1] * numeroElementos[i]* log10(numeroElementos[i]);
         tiemposEstimados.push_back(valor);
     }
 }
@@ -158,8 +165,8 @@ const vector <double> &a, vector <double> &tiemposEstimados){
 double calcularTiempoEstimadoPolinomico(const vector<double> &n, vector <double> &a){
     double valor = 0.0;
     for(int i=0; i < n.size(); i++){
-        // t(n) = a0+a1*n1 +a2*n2^2
-        valor = valor + a[0] + a[1] * n[i] + a[2] * pow(n[i],2);
+        // t(n) = a0 + a1*nlog(n).
+        valor = valor + a[0] + a[1] * n[i]* log10(n[i]);
     }
     return valor;
 }
@@ -199,5 +206,6 @@ double media(std::vector<double> vector){
     suma = suma / vector.size();
     return suma;
 }
+
 
 

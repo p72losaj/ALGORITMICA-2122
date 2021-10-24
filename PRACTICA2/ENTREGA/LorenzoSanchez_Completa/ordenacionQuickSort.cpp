@@ -3,7 +3,12 @@ Funciones del algoritmo de ordenacion por QuickSort
 Realizado por Jaime Lorenzo Sanchez
 */
 
+// Incluimos la biblioteca del algoritmo de ordenacion QuickSort
+
 #include "ordenacionQuickSort.hpp"
+
+// Incluimos la biblioteca de las funciones comunes
+
 #include "funcionesComunes.hpp"
 
 void ordenacionQuickSort(){
@@ -29,7 +34,45 @@ void ordenacionQuickSort(){
     // Obtenemos los tiempos de ordenacion de seleccion
     tiemposOrdenacionQuickSort(minimo, maximo, repeticiones, tiemposReales, numeroElementos);
     // Amacenamos en un fichero de texto el vector numeroElementos y el vector tiemposReales
-    escribeFicheroTiemposReales("datosReales.txt",numeroElementos, tiemposReales);
+    escribeFicheroTiemposReales("datosRealesQuickSort.txt",numeroElementos, tiemposReales);
+    std::vector<double> a; // Vector de coeficientes
+    a.resize(2); // El tamano del vector de coeficientes sera de 2
+    // Llamamos a la funcion de ajuste polinomico
+    ajustePolinomico(numeroElementos, tiemposReales, a);
+    // Calculo de los tiempos estimados de la funcion de ajuste de un polinomio
+    std::vector<double> tiemposEstimados; // Vector de tiempos estimados de la funcion de ajuste del polinomio
+    calcularTiemposEstimadosPolinomico(numeroElementos,a,tiemposEstimados);
+    // Calculamos el coeficiente de determinacion
+    double coeficiente = calcularCoeficienteDeterminacion(tiemposReales, tiemposEstimados);
+    std::cout << "Coeficiente de determinacion: " << coeficiente << std::endl;
+    // Almacenamos los tiempos reales y estimados en un fichero
+    escribeFicheroTiemposEstimados("datosFinalesQuickSort.txt",numeroElementos, tiemposReales, tiemposEstimados);
+    // Comprobamos si el usuario desea realizar una estimacion del tiempo del polinomio en funcion de un tamano dado
+    std::cout << "Desea estimar (Y/N): ";
+    string opcion;
+    // Obtenemos la opcion elegida por el usuario
+    cin>>opcion;
+    int tamEjemplar = -1;
+    // El usuario desea realizar una estimacion
+    if(opcion == "Y"){
+        // Pedimos el tamano del ejemplar del algoritmo hasta que el usuario no desee seguir realizando la estimacion
+        while(tamEjemplar != 0){
+            std::cout << "Introduce el valor 0 para finalizar"<<std::endl;
+            std::cout << "Introduce un tamano del ejemplar" << std::endl;
+            cin >> tamEjemplar; 
+            std::vector <double> tamanoElementos(1);
+            if(tamEjemplar != 0){
+                double valor = 0.0;
+                tamanoElementos[0] = tamEjemplar;
+                // Calculamos el tiempo estimado del polinomio en milisegundos
+                valor = calcularTiempoEstimadoPolinomico(tamanoElementos, a);
+                // Transformamos el numero de milisegundos en dias
+                valor = valor * 0.001 * 0.0000115741; 
+                std::cout << "Tiempo estimado: " << valor << " dias" << std::endl;
+            }
+        }
+        
+    }
 }
 
 // Funcion de obtencion de los tiempos de ordenacion
@@ -68,7 +111,7 @@ vector <double> &numeroElementos){
             // Iniciar medicion de tiempo
             tiempo.restart();
             // Ordenamos el vector
-            ordenacion(0,tamActual-1,tamActual,vector);
+            Quicksort(0,tamActual-1,tamActual,vector);
             bool ordenado = estaOrdenado(vector);
             if(ordenado == false){
                 exit(-1);
@@ -95,49 +138,28 @@ vector <double> &numeroElementos){
 
 // Funcion de ordenacion del vector
 
-
-void ordenacion(int iz, int de, int n, vector <int> &v){
-    int i = iz; // Primer elemento del vector
-    int j = de; // Ultimo elemento del vector
-    int x = v[(iz+de) / 2]; // Elemento medio del vector
-    do{
+void Quicksort(int iz, int de, int n, vector <int> &v){
+    int i = iz; 
+    int j = de; 
+    int x = v[ (iz+de) / 2];
+    while(i <= j){
         while(v[i] < x){
             i = i+1;
         }
-
+        
         while(v[j] > x){
             j = j-1;
         }
-
         if( i <= j){
-            
-            // Intercambiamos los valores del vector en la posicion i y j
-            
             int aux = v[i];
-
             v[i] = v[j];
-
             v[j] = aux;
-
             i = i+1;
-
             j = j-1;
-
         }
-
-    } while(i > j);
-
-    // El izquierdo tiene mas de 1 elemento
-
-    if( iz < j){
-        ordenacion(iz,j,n,v);
     }
-
-    // El lado derecho tiene mas de 1 elemento
-
-    else if (i < de){
-        ordenacion(i,de,n,v);
-    }
+    if( iz < j){ Quicksort(iz,j,n,v);  }
+    if (i < de){Quicksort(i,de,n,v); }
 }
 
 

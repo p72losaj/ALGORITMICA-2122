@@ -2,8 +2,8 @@
 
 # Creamos el fichero ejecutable de la practica
 
-practica2.exe: MainProgram.o ClaseTiempo.o sistemaEcuaciones.o funcionesComunes.o ordenacionQuickSort.o
-	g++ -Wall -o practica2.exe MainProgram.o ClaseTiempo.o sistemaEcuaciones.o funcionesComunes.o ordenacionQuickSort.o -lrt
+practica2.exe: MainProgram.o ClaseTiempo.o sistemaEcuaciones.o funcionesComunes.o ordenacionQuickSort.o ordenacionFusion.o
+	g++ -Wall -o practica2.exe MainProgram.o ClaseTiempo.o sistemaEcuaciones.o funcionesComunes.o ordenacionQuickSort.o ordenacionFusion.o -lrt
 
 # Creamos el fichero objeto del programa principal
 
@@ -29,6 +29,11 @@ funcionesComunes.o: funcionesComunes.cpp
 
 ordenacionQuickSort.o: ordenacionQuickSort.cpp
 	g++ -std=c++11 -c ordenacionQuickSort.cpp
+
+# Creamos el fichero objeto de la funcion de ordenacion fusion
+
+ordenacionFusion.o: ordenacionFusion.cpp
+	g++ -std=c++11 -c ordenacionFusion.cpp
 
 .PHONY: clean
 

@@ -61,6 +61,12 @@ const vector <double> &a, vector <double> &tiemposEstimados);
 void ajustePolinomico(const vector <double> &numeroElementos, const vector
 <double> &tiemposReales, vector <double> &a);
 
+/**
+ * Funcion que calcula los tiempos estimados del polinomio
+ * */
+
+void calcularTiemposEstimadosPolinomico(const vector <double> &numeroElementos,
+const vector <double> &a, vector <double> &tiemposEstimados);
 
 /**
  *  Funcion que escribe en un fichero los tiempos iniciales de un algoritmo

@@ -7,6 +7,8 @@ Realizado por Jaime Lorenzo Sanchez
 #ifndef  ORDENACIONQUICKSORT_HPP
 #define  ORDENACIONQUICKSORT_HPP
 
+// Incluimos la biblioteca de la funcion principal
+
 #include "MainProgram.hpp"
 
 /**
@@ -28,6 +30,6 @@ vector <double> &numeroElementos);
     @param v Vector a ordenar
 */
 
-void ordenacion(int iz, int de, int n, vector <int> &v);
+void Quicksort(int iz, int de, int n, vector <int> &v);
 
 #endif
