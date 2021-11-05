@@ -37,7 +37,7 @@ class Materiales{
     // Funcion que modifica el volumen utilizado por un material
     void setVolumenUtilizado(int uso2){ this->volumenUsado = uso2;}
     // Funcion que compara el volumen de 2 materiales
-    static bool compararVolumenMateriales(Materiales &a, Materiales &b){return a.volumen > b.volumen; }
+    static bool compararVolumenMateriales(Materiales &a, Materiales &b){return a.precio > b.precio; }
 }typedef Materiales;
 
 
