@@ -21,7 +21,7 @@ void ProblemaMochila(){
     leerFichero("materialesmochila.txt",materiales);
     // Ordenamos el vector de materiales de la mochila en funcion del volumen
     ordenarVector(materiales);
-    std::cout << "Mostrando el vector de materiales ordenado de mayor a menor por el volumen del material"<<endl;
+    std::cout << "Mostrando el vector de materiales ordenado de mayor a menor por el precio del material"<<endl;
     for(int i=0; i < materiales.size(); i++){
         cout << "Etiqueta: " << materiales[i].getEtiquetaMaterial() << ";Volumen: " << materiales[i].getVolumenMaterial() << ";Precio/UnidadVolumen: " << materiales[i].getPrecioMaterial()<<endl;
     }

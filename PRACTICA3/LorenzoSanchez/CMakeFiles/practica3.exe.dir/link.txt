@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/practica3.exe.dir/MainProgram.cpp.o CMakeFiles/practica3.exe.dir/ProblemaCambio.cpp.o CMakeFiles/practica3.exe.dir/ProblemaMochila.cpp.o  -o practica3.exe 

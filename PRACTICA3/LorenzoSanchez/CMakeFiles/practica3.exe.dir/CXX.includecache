@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/jaime/Escritorio/UCO/PROPIO/ALGORITMICA21-22/ALGORITMICA-2122/PRACTICA3/LorenzoSanchez/ProblemaMochila.cpp
+ProblemaMochila.hpp
+/home/jaime/Escritorio/UCO/PROPIO/ALGORITMICA21-22/ALGORITMICA-2122/PRACTICA3/LorenzoSanchez/ProblemaMochila.hpp
+stdio.h
+-
+stdlib.h
+-
+vector
+-
+string
+-
+fstream
+-
+sstream
+-
+iostream
+-
+algorithm
+-
+
+/home/jaime/Escritorio/UCO/PROPIO/ALGORITMICA21-22/ALGORITMICA-2122/PRACTICA3/LorenzoSanchez/ProblemaMochila.hpp
+string
+-
+vector
+-
+
