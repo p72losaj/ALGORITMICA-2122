@@ -1,5 +1,8 @@
 1 moneda
 2 moneda
+4 moneda
+40 moneda
+50 moneda
 5 moneda
 50 moneda
 10 moneda

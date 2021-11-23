@@ -28,6 +28,9 @@ void ProblemaCambio(){
     leerFichero("sistemamonetario.txt",vector);
     // Ordenamos el vector
     ordenarVector(vector);
+    if(vector.size() == 0){
+        return;
+    }
     int N; // Valor para el cambio
     std::cout << "Introduce el valor de n: ";
     cin >> N;
@@ -39,19 +42,7 @@ void ProblemaCambio(){
 
     // Creamos una matriz 
     std::vector < std::vector<int> > C (vector.size(),std::vector<int> (N+1)); 
-
     cambio2(vector,N,C);
-
-    // Mostramos la matriz
-
-    for(int i=0; i < vector.size(); i++){
-        // para j de 1 a N hacer
-        for(int j=0; j <= N; j++){
-            std::cout <<C[i][j] << " ";
-        }
-        std::cout << "" << endl;
-    }
-
     // Obtenemos las soluciones
 
     seleccionarMonedas(N,vector,C,solucion);
@@ -61,6 +52,7 @@ void ProblemaCambio(){
     int cantidadTotal = 0; // cantidad total de monedas/billetes utilizados
 
     std::cout << "Mostrando el cambio" <<std::endl;
+
     for(int i=0; i < solucion.size(); i++){
         if(solucion[i].getCantidadSolucionParcial() != 0){
             // Obtenemos el numero de billetes de 500 euros
@@ -136,27 +128,20 @@ void ordenarVector(vector<Divisa> &vector){sort(vector.begin(),vector.end(), Div
 void leerFichero(string nombre, vector<Divisa> &vector){
     Divisa divisa; // Clase divisa
     ifstream fichero;
-    string valor,tipo;
-    char delimitador = ' '; // Delimitador de los datos de cada linea
-    fichero.open(nombre.c_str(),ios::in); // Abrimos el fichero de texto en formato lectura
-    // Comprobamos si el fichero se ha abierto
+    fichero.open(nombre.c_str(),ios::in);
+    string tipo;
+    int valor = 0;
     if(fichero.is_open()){
-        // Leemos todas las lineas del fichero
         while(!fichero.eof()){
-            // Obtenemos el valor de la divisa almacenada en el fichero
-            getline(fichero,valor,delimitador);
-            // Almacenamos el valor de la divisa
-            divisa.setValorDivisa(stoi(valor));
-            // Obtenemos el tipo de la divisa almacenada en el fichero
-            getline(fichero,tipo);
-            // Almacenamos el tipo de la divisa
-            divisa.setTipoDivisa(tipo);
-            vector.push_back(divisa); // Anadimos la divisa al vector
+        fichero >> valor;
+        divisa.setValorDivisa(valor);
+        fichero >> tipo;
+        divisa.setTipoDivisa(tipo);
+        vector.push_back(divisa);
         }
     }
-    // fichero no abierto
     else{
-        cout << "El fichero" << nombre << " no existe o no tiene permisos para abrirlo" << std::endl;
+        cout << "Fichero" << nombre << " no encontrado" << endl;   
     }
 }
 
@@ -177,6 +162,7 @@ void seleccionarMonedas(int N, std::vector<Divisa> &vector,std::vector < std::ve
             i = i-1;
         }
         else{
+            if( ( j - vector[i].getValorDivisa() ) < 0){i = i-1;}
             // Aumentamos en 1 el numero de monedas del tipo de moneda
             solucion[i].setCantidadSolucionParcial(solucion[i].getCantidadSolucionParcial() + 1);
             // Pasamos a ver el elemento matriz[i][j-vector(i)]
