@@ -1,3 +1,0 @@
-/home/jaime/Escritorio/UCO/PROPIO/ALGORITMICA21-22/ALGORITMICA-2122/PRACTICA1/PROPIO/build/CMakeFiles/rebuild_cache.dir
-/home/jaime/Escritorio/UCO/PROPIO/ALGORITMICA21-22/ALGORITMICA-2122/PRACTICA1/PROPIO/build/CMakeFiles/edit_cache.dir
-/home/jaime/Escritorio/UCO/PROPIO/ALGORITMICA21-22/ALGORITMICA-2122/PRACTICA1/PROPIO/build/CMakeFiles/practica1.exe.dir
