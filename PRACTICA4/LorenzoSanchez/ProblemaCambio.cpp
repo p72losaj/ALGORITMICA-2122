@@ -95,6 +95,9 @@ void ProblemaCambio(){
             else if(vector[i].getValorDivisa() == 50){
                 std::cout << "Numero de monedas de 50 centimos: " << solucion[i].getCantidadSolucionParcial() << std::endl;
             }
+            else if(vector[i].getValorDivisa() == 40){
+                cout << "Numero de monedas de 40 centimos: " << solucion[i].getCantidadSolucionParcial()<<endl;
+            }
             // Obtenemos el numero de monedas de 20 centimos
             else if(vector[i].getValorDivisa() == 20){
                 std::cout << "Numero de monedas de 20 centimos: " << solucion[i].getCantidadSolucionParcial() << std::endl;
@@ -106,6 +109,10 @@ void ProblemaCambio(){
             // Obtenemos el numero de monedas de 5 centimos
             else if(vector[i].getValorDivisa() == 5){
                 std::cout << "Numero de monedas de 5 centimos: " << solucion[i].getCantidadSolucionParcial() << std::endl;
+            }
+            // Obtenemos el numero de monedas de 4 centimos
+            else if(vector[i].getValorDivisa() == 4){
+                cout << "Numero de monedas de 4 centimos: " << solucion[i].getCantidadSolucionParcial()<<endl;
             }
             // Obtenemos el numero de monedas de 2 centimos
             else if(vector[i].getValorDivisa() == 2){

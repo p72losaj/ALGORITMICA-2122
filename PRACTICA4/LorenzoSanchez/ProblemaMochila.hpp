@@ -17,7 +17,7 @@ class Materiales{
     private:
         int etiqueta; // Etiqueta del material
         int volumen; // Volumen del material
-        int precio; // Precio por unidad de volumen
+        float precio; // Precio por unidad de volumen
     public:
     // Funcion que obtiene la etiqueta del material
     int getEtiquetaMaterial(){ return this->etiqueta;}
@@ -28,11 +28,11 @@ class Materiales{
     // Funcion que modifica el volumen del material
     void setVolumenMaterial(int volumen2){ this->volumen = volumen2;}
     // Funcion que obtiene el precio por unidad de volumen del material
-    int getPrecioMaterial(){ return this->precio; }
+    float getPrecioMaterial(){ return this->precio; }
     // Funcion que modifica el precio por unidad de volumen del material
-    void setPrecioMaterial(int precio2){ this->precio = precio2;}
+    void setPrecioMaterial(float precio2){ this->precio = precio2;}
     // Funcion que compara el volumen de 2 materiales
-    static bool compararVolumenMateriales(Materiales &a, Materiales &b){return a.precio > b.precio; }
+    static bool compararVolumenMateriales(Materiales &a, Materiales &b){return a.precio < b.precio; }
 }typedef Materiales;
 
 // Funcion que obtiene los objetos utilizados
