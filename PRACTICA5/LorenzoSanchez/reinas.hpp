@@ -5,5 +5,6 @@
 // x representa las columnas de la matriz de n*n
 bool Lugar(int k,std::vector<int> x);
 
-void Reinas(std::vector<std::vector<int>> &matriz);
+void Reinas(int n,std::vector<std::vector<int>> &matriz);
+
 #endif

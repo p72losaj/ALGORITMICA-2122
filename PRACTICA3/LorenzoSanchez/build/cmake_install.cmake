@@ -1,4 +1,4 @@
-# Install script for directory: /home/jaime/Escritorio/UCO/PROPIO/ALGORITMICA21-22/ALGORITMICA-2122/PRACTICA3/LorenzoSanchez
+# Install script for directory: /home/jaime/Escritorio/UCO/ALGORITMICA/ALGORITMICA-2122/PRACTICA3/LorenzoSanchez
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/jaime/Escritorio/UCO/PROPIO/ALGORITMICA21-22/ALGORITMICA-2122/PRACTICA3/LorenzoSanchez/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/jaime/Escritorio/UCO/ALGORITMICA/ALGORITMICA-2122/PRACTICA3/LorenzoSanchez/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

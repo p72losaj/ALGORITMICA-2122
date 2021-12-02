@@ -1,5 +1,11 @@
 #include "reinas.hpp"
 #include <algorithm>
+#include <vector>
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
+
+using namespace std;
 
 bool Lugar(int k,std::vector<int> x){
     for(int i=1; i < (k-1); i++){
@@ -9,4 +15,8 @@ bool Lugar(int k,std::vector<int> x){
         }
     }
     return true;
+}
+
+void Reinas(int n,std::vector<std::vector<int>> &matriz){
+    
 }

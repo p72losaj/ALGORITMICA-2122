@@ -21,17 +21,12 @@ using namespace std;
 void ProblemaCambio(){
     SolucionParcialCambio s; // creamos una solucionParcial
     std::vector<Divisa> vector; // Creamos un vector de divisas
-
     std::vector<SolucionParcialCambio> solucion; // Creamos un vector de cambios
     // Leemos el fichero de texto SistemaMonetario.txt
     leerFichero("sistemamonetario.txt",vector);
     // Ordenamos el vector
     ordenarVector(vector);
     int n; // Valor para el cambio
-    std::cout << "Mostrando los datos del fichero sistemamonetario.txt ordenados" << std::endl;
-    for(int i=0; i < vector.size(); i++){
-        std::cout << vector[i].getValorDivisa()<<";"<<vector[i].getTipoDivisa()<<std::endl;
-    }
     std::cout << "Introduce el valor de n: ";
     cin >> n;
     while (n < 1){
@@ -105,6 +100,9 @@ void ProblemaCambio(){
             else if(vector[i].getValorDivisa() == 50){
                 std::cout << "Numero de monedas de 50 centimos: " << solucion[i].getCantidadSolucionParcial() << std::endl;
             }
+            else if(vector[i].getValorDivisa() == 40){
+                cout << "Numero de monedas de 40 centimos: " << solucion[i].getCantidadSolucionParcial()<<endl;
+            }
             // Obtenemos el numero de monedas de 20 centimos
             else if(vector[i].getValorDivisa() == 20){
                 std::cout << "Numero de monedas de 20 centimos: " << solucion[i].getCantidadSolucionParcial() << std::endl;
@@ -117,15 +115,18 @@ void ProblemaCambio(){
             else if(vector[i].getValorDivisa() == 5){
                 std::cout << "Numero de monedas de 5 centimos: " << solucion[i].getCantidadSolucionParcial() << std::endl;
             }
+            // Obtenemos el numero de monedas de 4 centimos
+            else if(vector[i].getValorDivisa() == 4){
+                cout << "Numero de monedas de 4 centimos: " << solucion[i].getCantidadSolucionParcial()<<endl;
+            }
             // Obtenemos el numero de monedas de 2 centimos
             else if(vector[i].getValorDivisa() == 2){
                 std::cout << "Numero de monedas de 2 centimos: " << solucion[i].getCantidadSolucionParcial() << std::endl;
             }
             // Obtenemos el numero de monedas de 1 centimo
             else if(vector[i].getValorDivisa() == 1){
-                std::cout << "Numero de monedas de 1 centim: " << solucion[i].getCantidadSolucionParcial() << std::endl;
+                std::cout << "Numero de monedas de 1 centimo: " << solucion[i].getCantidadSolucionParcial() << std::endl;
             }
-            // std::cout << "Valor de la divisa en centimos: " << vector[i].getValorDivisa() << "; Tipo de la divisa: " << vector[i].getTipoDivisa() + ";Cantidad: " << solucion[i].getCantidadSolucionParcial() << std::endl;
             cantidadTotal += solucion[i].getCantidadSolucionParcial();
         }        
     }
@@ -140,26 +141,19 @@ void ordenarVector(vector<Divisa> &vector){
 void leerFichero(string nombre, vector<Divisa> &vector){
     Divisa divisa; // Clase divisa
     ifstream fichero;
-    string valor,tipo;
-    char delimitador = ' '; // Delimitador de los datos de cada linea
-    fichero.open(nombre.c_str(),ios::in); // Abrimos el fichero de texto en formato lectura
-    // Comprobamos si el fichero se ha abierto
+    fichero.open(nombre.c_str(),ios::in);
+    string tipo;
+    int valor = 0;
     if(fichero.is_open()){
-        // Leemos todas las lineas del fichero
         while(!fichero.eof()){
-            // Obtenemos el valor de la divisa almacenada en el fichero
-            getline(fichero,valor,delimitador);
-            // Almacenamos el valor de la divisa
-            divisa.setValorDivisa(stoi(valor));
-            // Obtenemos el tipo de la divisa almacenada en el fichero
-            getline(fichero,tipo);
-            // Almacenamos el tipo de la divisa
-            divisa.setTipoDivisa(tipo);
-            vector.push_back(divisa); // Anadimos la divisa al vector
+        fichero >> valor;
+        divisa.setValorDivisa(valor);
+        fichero >> tipo;
+        divisa.setTipoDivisa(tipo);
+        vector.push_back(divisa);
         }
     }
-    // fichero no abierto
     else{
-        cout << "El fichero" << nombre << " no existe o no tiene permisos para abrirlo" << std::endl;
+        cout << "Fichero" << nombre << " no encontrado" << endl;   
     }
 }
