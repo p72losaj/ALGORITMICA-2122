@@ -6,19 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/home/jaime/Escritorio/UCO/ALGORITMICA/ALGORITMICA-2122/PRACTICA5/LorenzoSanchez/MainProgram.cpp
-stdlib.h
--
-stdio.h
--
-iostream
--
-vector
--
-
 /home/jaime/Escritorio/UCO/ALGORITMICA/ALGORITMICA-2122/PRACTICA5/LorenzoSanchez/reinas.cpp
 reinas.hpp
 /home/jaime/Escritorio/UCO/ALGORITMICA/ALGORITMICA-2122/PRACTICA5/LorenzoSanchez/reinas.hpp
+cmath
+-
+vector
+-
+stdio.h
+-
+stdlib.h
+-
+iostream
+-
 
 /home/jaime/Escritorio/UCO/ALGORITMICA/ALGORITMICA-2122/PRACTICA5/LorenzoSanchez/reinas.hpp
 vector

@@ -1,30 +1,27 @@
-// Funcion principal
-#include <stdlib.h>
-#include <stdio.h>
+/**
+ * Fichero que realiza la funcion principal del programa
+ * Realizado por Jaime Lorenzo Sanchez
+ * */
+
+#include "reinas.hpp"
 #include <iostream>
-#include <vector>
+#include <stdlib.h>
 using namespace std;
+
 int main(){
-    int n = 0; // Numero de reinas
-    while(n < 2){
-        cout << "Introduce el numero de reinas: ";
-        cin >> n;
-        if(n  < 2){
-            cout << "Introduce al menos 2 reinas"<<endl;
-        }
-    }
-    std::vector<std::vector<int>> matriz; // Creamos una matriz vacia
-    matriz.resize(n+1,vector<int>(n+1)); // Creamos una matriz de n+1filas,n+1 columnas
     int opcion = -1;
     while(opcion != 0){
-        cout << "############################"
-        cout << "MENU DE OPCIONES OBLIGATORIAS"<<endl;
-        cout << "1. METODO BACKTRACKING PARA OBTENER SOLUCIONES"<<endl;
-        cout << "2. METODO BACKTRACKING PARA OBTENER UNA SOLUCION"<<endl;
-        cout << "3. ALGORITMO LAS VEGAS" << endl;
-        cout << "############################"
-        cout << "Introduce una opcion: " << endl;
+        cout<<"Mostrando funcionalidades " << std::endl;
+        cout << "0. SALIR" << endl;
+        cout << "1. Obtener soluciones n-reinas" << std::endl;
+        cout << "2. Obtener una solucion n-reinas que coloca la primera reina de la primera fila en la columna cental" << endl;
+        cout << "3. Algoritmo de Las Vegas para n-reinas"<<endl;
+        cout << "##################################################################"<<endl;
+        cout << "Introduce una opcion: ";
         cin >> opcion;
+        if(opcion == 1){solucionesReinas();}
+        else if(opcion == 2){SolucionReina();}
     }
-    return 0;
+
+    return 1;
 }
