@@ -42,7 +42,7 @@ void Reina(int n,Tablero &solucion){
 
     // Caso 
     x[1] = n/2;
-    int k = 1;
+    int k = 2;
     while( k > 0){
         x[k] = x[k] + 1;
         while( (x[k] <= n ) && (Lugar(k,x) == false) ){x[k] = x[k] + 1;}
