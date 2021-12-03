@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include <iostream>
 
+#include "ClaseTiempo.cpp"
+
 using namespace std;
 
 void SolucionReina(){
@@ -18,11 +20,23 @@ void SolucionReina(){
         }
     }
 
+    Clock tiempo; 
+
     // Estructura de datos de la solucion
 
     Tablero solucion;
 
+    // Iniciamos el reloj de tiempo
+            
+    tiempo.restart();
+
     Reina(n,solucion);
+
+    // Detenemos el tiempo de ordenacion del vector
+
+    if(tiempo.isStarted()){ tiempo.stop(); }
+
+    cout << "Tiempo utilizado para calcular la solucion: " << tiempo.elapsed() << " microsegundos"<<endl;
 
     std::cout << "Solucion: [";
 
@@ -30,7 +44,7 @@ void SolucionReina(){
         cout << solucion.solucion[i]<<" ";
     }
 
-    cout << endl;
+    cout << "]" <<  endl;
     
 
 }
@@ -51,11 +65,6 @@ void Reina(int n,Tablero &solucion){
                 solucion.identificadorTablero = 1;
                 // escribimos x(1),x(2),...,x(k)
                 solucion.solucion = x;
-                // Recorremos las filas de la matriz
-                for(int i=1; i < x.size(); i++){
-                    cout << x[i] << " ";
-                }
-                cout << endl;
                 k = 0;
             }
             else{

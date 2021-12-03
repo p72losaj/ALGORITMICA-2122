@@ -14,4 +14,4 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Generamos el ejecutable
 
-add_executable(practica5.exe MainProgram.cpp reinas.cpp)
+add_executable(practica5.exe MainProgram.cpp reinas.cpp ClaseTiempo.cpp)
