@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/practica5.exe.dir/MainProgram.cpp.o CMakeFiles/practica5.exe.dir/reinas.cpp.o CMakeFiles/practica5.exe.dir/ClaseTiempo.cpp.o  -o practica5.exe 

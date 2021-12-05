@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/jaime/Escritorio/UCO/ALGORITMICA/ALGORITMICA-2122/PRACTICA5/LorenzoSanchez/ClaseTiempo.cpp
+cassert
+-
+ctime
+-
+cstdio
+-
+cstring
+-
+iostream
+-
+stdint.h
+-
+
+/home/jaime/Escritorio/UCO/ALGORITMICA/ALGORITMICA-2122/PRACTICA5/LorenzoSanchez/reinas.cpp
+reinas.hpp
+/home/jaime/Escritorio/UCO/ALGORITMICA/ALGORITMICA-2122/PRACTICA5/LorenzoSanchez/reinas.hpp
+cmath
+-
+vector
+-
+stdio.h
+-
+stdlib.h
+-
+iostream
+-
+ClaseTiempo.cpp
+/home/jaime/Escritorio/UCO/ALGORITMICA/ALGORITMICA-2122/PRACTICA5/LorenzoSanchez/ClaseTiempo.cpp
+
+/home/jaime/Escritorio/UCO/ALGORITMICA/ALGORITMICA-2122/PRACTICA5/LorenzoSanchez/reinas.hpp
+vector
+-
+

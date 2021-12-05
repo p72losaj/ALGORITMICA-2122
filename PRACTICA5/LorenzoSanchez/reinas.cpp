@@ -55,7 +55,7 @@ void Reina(int n,Tablero &solucion){
     // Colocamos la primera reina en la columna central (c/2)
 
     // Caso 
-    x[1] = n/2;
+    x[1] = (n+1)/2;
     int k = 2;
     while( k > 0){
         x[k] = x[k] + 1;
