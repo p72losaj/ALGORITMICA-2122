@@ -21,4 +21,10 @@ void SolucionReina();
 
 void Reina(int n,Tablero &solucion);
 
+void reinasLasVegas();
+
+bool LasVegas(int n,Tablero &solucion);
+
+int uniforme(int a, int b);
+
 #endif

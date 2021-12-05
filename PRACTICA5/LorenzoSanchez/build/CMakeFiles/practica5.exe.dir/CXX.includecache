@@ -33,6 +33,8 @@ stdlib.h
 -
 iostream
 -
+cstdlib
+-
 ClaseTiempo.cpp
 /home/jaime/Escritorio/UCO/ALGORITMICA/ALGORITMICA-2122/PRACTICA5/LorenzoSanchez/ClaseTiempo.cpp
 

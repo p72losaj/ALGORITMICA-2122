@@ -54,7 +54,7 @@ inicio
 
 		para j de 1 a n hacer
 			X(k) ← j  // probamos la reina k en la columna j
-			si Lugar(k, x) = cierto entonces // Se puede colocar en la columna j
+			si Lugar(k, x) =   entonces // Se puede colocar en la columna j
 				contador ← contador + 1
 				ok(contador) ← j // guardamos la posicion disponible
 			finsi
