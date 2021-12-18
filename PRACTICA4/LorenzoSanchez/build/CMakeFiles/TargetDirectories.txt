@@ -1,0 +1,3 @@
+/home/jaime/Escritorio/UCO/ALGORITMICA/ALGORITMICA-2122/PRACTICA4/LorenzoSanchez/build/CMakeFiles/rebuild_cache.dir
+/home/jaime/Escritorio/UCO/ALGORITMICA/ALGORITMICA-2122/PRACTICA4/LorenzoSanchez/build/CMakeFiles/edit_cache.dir
+/home/jaime/Escritorio/UCO/ALGORITMICA/ALGORITMICA-2122/PRACTICA4/LorenzoSanchez/build/CMakeFiles/practica4.exe.dir

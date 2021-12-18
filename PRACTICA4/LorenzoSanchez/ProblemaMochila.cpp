@@ -69,8 +69,7 @@ void ProblemaMochila(){
 // Funcion que crea la matriz
 
 void crearMatriz(std::vector<Materiales> &vector, int V, std::vector < std::vector <int> > &matriz){
-    for(int i=0; i <= V; i++) matriz[0][i] = 0;
-    for(int i=0; i <= vector.size(); i++) matriz[i][0] = 0;
+    /*
     for(int i=1; i <= vector.size(); i++){
         for(int j=0; j <= V; j++){
             if(j < vector[i-1].getVolumenMaterial()) matriz[i][j] = matriz [i-1][j];
@@ -84,23 +83,57 @@ void crearMatriz(std::vector<Materiales> &vector, int V, std::vector < std::vect
             }
         }
     }
+    */
+    for (size_t i = 0; i < vector.size(); i++)
+	{
+		for (int j = 1; j < V + 1; j++)
+		{
+			if (i == 0)
+			{
+				matriz[i][j] = vector[i].getVolumenMaterial()*vector[i].getPrecioMaterial();
+			}
+			else
+			{
+				if (j < vector[i].getVolumenMaterial())
+				{
+					matriz[i][j] = matriz[i - 1][j];
+				}
+				else
+				{
+					matriz[i][j] = max((float)matriz[i - 1][j], matriz[i - 1][j - vector[i].getVolumenMaterial()] 
+                    + vector[i].getVolumenMaterial() * vector[i].getPrecioMaterial());
+				}
+			}
+		}
+	}
 }
 
 // Funcion que obtiene la solucion
 
 void obtenerObjetos(int V,std::vector<Materiales> &vector,std::vector < std::vector <int> > &matriz,std::vector<int> &uso){
-    int j = V; 
-    for(int i = vector.size(); i > 0; i--){
-        // No se usa el material
-        if(matriz[i][j] == matriz[i-1][j]){
-            uso[i] = 0;
+    
+    int ocupado = 0;
+	int i = vector.size() - 1;
+	int j = V;
+    while (i > 0){
+        // Calculo la diferencia y aplico un intervalo de confianza de 5 centesimas si la diferencia no es 0.
+		float diferencia = matriz[i][j] - (matriz[i - 1][j - vector[i].getVolumenMaterial()] 
+        + vector[i].getVolumenMaterial() * vector[i].getPrecioMaterial());
+        if (diferencia == 0 or (diferencia <= 0.05 and diferencia >= -0.05))
+		{
+			uso[i] = 1;
+			ocupado += vector[i].getVolumenMaterial();
+			j -= vector[i].getVolumenMaterial();
         }
-        // Usamos el objeto
-        else{
-            uso[i-1] = 1;            
-            j = j - vector[i].getVolumenMaterial();
-        }
+		i--;
     }
+
+    if (V - ocupado >= vector[0].getVolumenMaterial())
+	{
+		uso[0] = 1;
+		ocupado += vector[i].getVolumenMaterial();
+	}
+    
 }
 
 // Funcion de ordenacion del vector

@@ -1,7 +1,8 @@
+##############################################################################
 Algoritmo lugar: devuelve un valor cierto si lareina k-ésima puede ser ubicada en la fila k y columna xk, una vez colocadas las
 k −1 anteriores
 
-Algoritmo Lugar(k, x; ; ) => k representa el identificador de la reina; x el numero de columnas de la tabla n*n, siendo n el numero de reinas
+Algoritmo Lugar(k, x; ; ) => k representa el identificador de la reina; x el vector de columnas de la tabla
 
 inicio
 	para i de 1 a k −1 hacer
@@ -13,7 +14,9 @@ devolver cierto
 fin
 
 ###########################################################################
-Algoritmo para verificar si una reina es amenazada por otra reina
+x -> columnas de la matriz
+k -> identificador de la reina
+n -> numero de reinas
 
 Algoritmo n −reinas(n)
 inicio
@@ -21,10 +24,10 @@ inicio
 	k ←1
 	mientras k > 0 hacer
 		x(k) ←x(k) + 1
-		mientras x(k) ≤n y Lugar(k, x) = falso hacer
+		mientras x(k) ≤ n y Lugar(k, x) = falso hacer
 			x(k) ←x(k) + 1
 		finmientras
-		si x(k) ≤n entonces
+		si x(k) ≤ n entonces
 			si k = n entonces
 			escribir x(1), x(2), . . . , x(k)
 			sino
@@ -36,3 +39,50 @@ inicio
 		finsi
 	finmientras
 fin
+
+##############################################################################
+
+Algoritmo n − reinasLasVegas(n; ; X, exito)
+inicio
+	Inicializamos la solución a 0
+	para i de 1 a n hacer
+		x(i) ← 0
+	finpara
+	//Se han colocado k-1 reinas y se buscan todas las posiciones para la k-ésima
+	para k de 1 a n hacer
+		contador ← 0 // Almacena todas las posiciones posibles la reina k en el vector ok
+
+		para j de 1 a n hacer
+			X(k) ← j  // probamos la reina k en la columna j
+			si Lugar(k, x) =   entonces // Se puede colocar en la columna j
+				contador ← contador + 1
+				ok(contador) ← j // guardamos la posicion disponible
+			finsi
+		finpara
+	
+		salir si contador = 0  // no se ha encontrado posicion para la reina k. 
+	
+	// Se puede colocar la reina k y se selecciona una posición aleatoria
+
+		columna ← ok(uniforme(1, contador))
+		X(k) ← columna
+	finpara
+	
+	si contador = 0 entonces 
+		exito ← falso // No hay solución
+	sino
+		exito ← cierto // Hay solución
+	finsi
+fin
+
+################################################################
+
+PRUEBAS:
+
+4-reinas -> Soluciones: [2,4,1,3] y [3,1,4,2].
+
+  1 2 3 4 
+1   1   
+2       2
+3 3
+4     4
